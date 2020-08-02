@@ -7,7 +7,7 @@
 - `python manage.py makemigrations`
 
 * Then Go to frontend directory and
-* do npm install
+* do `npm install`
 
 # Start
 
