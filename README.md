@@ -1,5 +1,7 @@
 # DJANGOFULLSTACK
 
+This is a Django Full Stack Project. This project is Made with Django, Angular, SQLite3 technologies.
+
 # Setup
 
 - `python manage.py migrate`
