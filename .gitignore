@@ -1,0 +1,4 @@
+.vscode
+/djangofullstack-frontend/node_modules
+*/__pycache__
+db.sqlite3

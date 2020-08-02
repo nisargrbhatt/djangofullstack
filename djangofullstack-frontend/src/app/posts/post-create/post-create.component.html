@@ -1,0 +1,52 @@
+<mat-card>
+  <form (submit)="onPostCreate(postCreateForm)" #postCreateForm="ngForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        name="title"
+        type="text"
+        placeholder="Enter the title"
+        [ngModel]
+        #titleInput="ngModel"
+        required
+      />
+      <mat-error *ngIf="titleInput.invalid">Please Provide Title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Content</mat-label>
+      <textarea
+        matInput
+        name="content"
+        rows="4"
+        cols="4"
+        placeholder="Enter Your Post Content"
+        [ngModel]
+        #contentInput="ngModel"
+        required
+      >
+      </textarea>
+      <mat-error *ngIf="contentInput.invalid"
+        >Please Provide Content to the Post</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Creator</mat-label>
+      <input
+        type="text"
+        name="creator"
+        matInput
+        placeholder="Enter Post Creator's Name"
+        [ngModel]
+        #creatorInput="ngModel"
+        required
+      />
+      <mat-error *ngIf="creatorInput.invalid"
+        >Please Provide Creator's Name</mat-error
+      >
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">
+      Create Post
+    </button>
+  </form>
+</mat-card>
