@@ -38,11 +38,6 @@ def LogInView(request, *args, **kwargs):
         except:
             pass
         user_detail = User.objects.get(username=body['username'])
-        print(user_detail)
-        print()
-        print(user_detail.email)
-        print(user_detail.pk)
-        print()
         header = {
             'alg': 'HS256',
             'typ': 'JWT'
@@ -60,8 +55,6 @@ def LogInView(request, *args, **kwargs):
 
 
 def LogOutView(request, *args, **kwargs):
-    body = json.loads(request.body.decode('utf-8'))
-    check = User.objects.get(pk=body['userId'])
     try:
         logout(request)
         return JsonResponse(data={'message': 'User Logged out Successfully'}, status=200)
