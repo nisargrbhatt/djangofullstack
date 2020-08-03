@@ -7,6 +7,12 @@ import json
 # from ..djangofullstack import settings
 # Create your views here.
 
+header = {
+    'alg': 'HS256',
+    'typ': 'JWT'
+}
+key = 'secret_code'
+
 
 def SignUpView(request, *args, **kwargs):
     body = json.loads(request.body.decode('utf-8'))
@@ -38,11 +44,7 @@ def LogInView(request, *args, **kwargs):
         except:
             pass
         user_detail = User.objects.get(username=body['username'])
-        header = {
-            'alg': 'HS256',
-            'typ': 'JWT'
-        }
-        key = 'secret_code'
+
         payload = {
             'email': user_detail.email,
             'userId': user_detail.pk,

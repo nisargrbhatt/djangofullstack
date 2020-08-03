@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { PostsService } from './../posts.service';
@@ -11,12 +12,17 @@ import { Subscription } from 'rxjs';
 export class PostListComponent implements OnInit, OnDestroy {
   posts: PostsModel[] = [];
   isLoading = true;
+  userId: string;
   private postsSub: Subscription;
 
-  constructor(private postsService: PostsService) {}
+  constructor(
+    private postsService: PostsService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.postsService.getPosts();
+    this.userId = this.authService.getUserId();
     this.postsSub = this.postsService
       .getPostUpdateListener()
       .subscribe((posts: { posts: PostsModel[] }) => {

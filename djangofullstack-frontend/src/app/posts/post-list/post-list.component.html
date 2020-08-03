@@ -5,8 +5,7 @@
       {{ post.title }}
     </mat-expansion-panel-header>
     <p>{{ post.content }}</p>
-    <p>{{ post.creator }}</p>
-    <mat-action-row>
+    <mat-action-row *ngIf="post.creator == userId">
       <a mat-button color="primary">EDIT</a>
       <button mat-button color="warn" (click)="deletePost(post.id)">
         DELETE

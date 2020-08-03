@@ -35,7 +35,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
       id: null,
       title: form.value.title,
       content: form.value.content,
-      creator: form.value.creator,
+      creator: null,
     };
     this.postsService.createPost(postData);
   }
